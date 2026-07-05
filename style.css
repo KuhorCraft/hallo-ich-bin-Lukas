@@ -1,0 +1,253 @@
+/* Základní reset a nastavení */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Jazyková navigace napevno na vrchu */
+.lang-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(22, 27, 34, 0.95);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 1000;
+    border-bottom: 1px solid #30363d;
+}
+
+.lang-nav a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.lang-nav a:hover {
+    color: #1f6feb;
+}
+
+/* Sekce jazyků a oddělovače */
+.lang-section {
+    padding-top: 55px; /* Kompenzace fixní navigace */
+}
+
+.border-top {
+    border-top: 5px solid #30363d;
+}
+
+/* Hero sekce s fotkou */
+.hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    background: rgba(13, 17, 23, 0.75);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #8b949e;
+}
+
+/* Kontejnery obsahu */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.bg-dark-cool {
+    background-color: #161b22;
+    max-width: 100%;
+    padding-left: calc((100% - 1100px) / 2 + 20px);
+    padding-right: calc((100% - 1100px) / 2 + 20px);
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #58a6ff;
+}
+
+/* Grid na karty (Záliby) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Ořízne fotku aby seděla do poměru */
+}
+
+.card h3 {
+    padding: 20px 20px 10px 20px;
+    color: #ffffff;
+}
+
+.card p {
+    padding: 0 20px 20px 20px;
+    color: #8b949e;
+}
+
+/* Úspěchy - řádkový layout prokládaný s fotkami */
+.achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.achievement-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.achievement-text {
+    flex: 1;
+}
+
+.achievement-text h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.achievement-text a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.achievement-text a:hover {
+    text-decoration: underline;
+}
+
+.achievement-img {
+    width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+
+/* Kontaktní sekce */
+.contact-section {
+    text-align: center;
+}
+
+.contact-section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact-section p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #21262d;
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+    color: #ffffff;
+}
+
+/* Responzivita pro mobilní telefony */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .achievement-item, .achievement-item.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .achievement-img {
+        width: 100%;
+        height: auto;
+    }
+}
